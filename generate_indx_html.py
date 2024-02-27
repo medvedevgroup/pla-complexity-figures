@@ -78,7 +78,7 @@ def gen_static_html():
         <section>
             <h2>Method</h2>
             <p>To explore the PLA-complexity across a diverse set of genomes, we downloaded a sample of RefSeq genomes that are complete and full, do not have any missing bases, and are longer than 10,000nt. Our dataset contained 549 genomes, representing the kingdoms of Virus, Bacteria, Archaea, and Fungi.
-            The median genome length was 2.7 mil and the maximum was 63 mil. We used O'Rourke's algorithm, with \(k=21\), to obtain the PLA-complexity \(b\) for  \(\epsilon \in {1, 2, 4, 8, \ldots, 1024}\). We then fit a two parameter curve \(b = B \cdot N/\epsilon^\\alpha\) to each genome using  non-linear least squares regression (function nls in R).
+            The median genome length was 2.7 mil and the maximum was 63 mil. We used O'Rourke's algorithm, with \(k=21\), to obtain the PLA-complexity \(b\) for  \(\epsilon \in \{1, 2, 4, 8, \ldots, 1024\}\). We then fit a two parameter curve \(b = B \cdot N/\epsilon^\\alpha\) to each genome using  non-linear least squares regression (function nls in R).
             As a seed, we set \(\\alpha=1\) and \(B \cdot N\) equal to the number of segments for \(\epsilon=1\). We found the fits to be fairly accurate, albeit generally underpredicting the number of segments when the number is small (i.e. for large \(\epsilon\) ). </p>
         </section>
         <section>
