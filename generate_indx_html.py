@@ -117,7 +117,7 @@ def process_html(csv_file):
         lines = f.readlines()
     # for row in reader:
     #     print(row)
-    for line in lines:
+    for line in lines[1:]:
         vals = line.strip().split(",")
         ref_seq_id = vals[1].strip()
         kingdom = vals[2].strip()
