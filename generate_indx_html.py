@@ -65,6 +65,22 @@ def gen_static_html():
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Include DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#sortable-table').DataTable();
+        } );
+    </script>
 </head>
 <body>
     <header>
@@ -84,25 +100,29 @@ def gen_static_html():
         <section>
             <h2>PLA-Complexity Curves</h2>
             <p>The following table includes the pla-complexity curves, kingdoms and the size of all the genomes that we used for comparison in our paper.</p>
-            <table>
-                <tr>
-                    <th style="width:50%">Genome</th>
-                    <th style="width:20%">Kingdom</th>
-                    <th style="width:30%">Size</th>
-                </tr>
+            <table id="sortable-table" class="display">
+                <thead>
+                    <tr>
+                        <th style="width:50%">Genome</th>
+                        <th style="width:20%">Kingdom</th>
+                        <th style="width:30%">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
 '''
 
 def get_dynamic_html(ref_seq_id, figure_path, kingdom, length):    
     return '''
-            <tr>
-                <td><a target="_blank" href="{}">{}</a></td>
-                <td>{}</td>
-                <td>{}</td>
-            </tr>            
+                    <tr>
+                        <td><a target="_blank" href="{}">{}</a></td>
+                        <td>{}</td>
+                        <td>{}</td>
+                    </tr>            
 '''.format(figure_path, ref_seq_id, kingdom, length)
 
 def get_tail_html():
     return '''
+                </tbody>
             </table>
         </section>
     </main>
